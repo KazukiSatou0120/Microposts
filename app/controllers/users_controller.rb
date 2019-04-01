@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:index, :show]
+  #require～でログイン状態を確認し、ログインしていればログインページへ強制的にリダイレクト。ログインしてないユーザーにはindexとshowを見られることはなくなる。
   
   def index
     @users = User.all.page(params[:page])
@@ -7,6 +8,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.order('created_at DESC').page(params[:page])
+    counts(@user)
   end
 
   def new
