@@ -35,4 +35,10 @@ class User < ApplicationRecord
     self.followings.include?(other_user)
     #self.followingsによりUser達を取得し、include?でother_userが含まれてないか確認している。含まれていたらtrue、いなければfalse
   end
+  
+  def feed_microposts
+    Micropst.where(user_id: self.following_ibs + [self.id])
+    #following_idsはUserモデルのhas_many :followings, ... によって自動的に生成されるメソッド。UserがフォローしているUserのidの配列を取得している。
+    #更に、自分自身のself.idもデータ型を合わせるために[self.id]と配列に変換して、追加してる。
+  end
 end
