@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* プロジェクト名：Micropsts(Twitteのクローンです。)
+* 機能一覧
+*   投稿機能、ユーザー登録、ログイン、フォロー、pagination(kaminari)
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
+* 使用している技術一覧
+*   インフラ：AWS,Heroku
+*   データベース:MySQL
+*   セッション管理:Cookie
 * ...
